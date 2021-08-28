@@ -1,7 +1,0 @@
-﻿  Game.cpp
-C:\Users\Robert\source\repos\TestEngine\TestEngine\Render.h(7,10): fatal error C1083: Cannot open include file: 'd3dx9.h': No such file or directory
-  main.cpp
-C:\Users\Robert\source\repos\TestEngine\TestEngine\Render.h(7,10): fatal error C1083: Cannot open include file: 'd3dx9.h': No such file or directory
-  Render.cpp
-C:\Users\Robert\source\repos\TestEngine\TestEngine\Render.h(7,10): fatal error C1083: Cannot open include file: 'd3dx9.h': No such file or directory
-  Generating Code...
