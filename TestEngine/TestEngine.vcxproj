@@ -151,6 +151,8 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Map.cpp" />
     <ClCompile Include="Render.cpp" />
+    <ClCompile Include="RenderV2.cpp" />
+    <ClCompile Include="Surface.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Color.h" />
@@ -158,6 +160,8 @@
     <ClInclude Include="Game.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="Render.h" />
+    <ClInclude Include="RenderV2.h" />
+    <ClInclude Include="Surface.h" />
     <ClInclude Include="vec2d.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

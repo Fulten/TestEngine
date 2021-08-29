@@ -3,6 +3,8 @@
 // for small projects
 
 #include <chrono>
+#include <Windows.h>
+#include <windowsx.h>
 #include "Game.h"
 
 // hight and width of window

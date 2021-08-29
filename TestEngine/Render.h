@@ -1,5 +1,6 @@
 #pragma once
 //simple vector based rendering engine
+// probably implmented poorly
 
 #include <Windows.h>
 #include <windowsx.h>
@@ -32,8 +33,8 @@ private:
 	LPDIRECT3DVERTEXBUFFER9 v_buffer = NULL;
 
 protected:
-	void Build(); // builds a frame for the graphics card
-	void Send(); // sends a built frame to the graphics card
+	void build(); // builds a frame for the graphics card
+	void send(); // sends a built frame to the graphics card
 
 public:
 	Render(HWND& hWnd);

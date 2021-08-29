@@ -27,6 +27,12 @@
     <ClCompile Include="Map.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Surface.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderV2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -45,6 +51,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="vec2d.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Surface.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderV2.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
