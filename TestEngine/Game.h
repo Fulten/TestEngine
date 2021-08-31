@@ -2,18 +2,17 @@
 
 // the game's main class
 
-#include "Render.h"
+#include "Draw.h"
 #include "Map.h"
 
-class Game :
-    public Render
+class Game 
 {
 private:
-
+    Draw graphics;
 
 
 public:
-    Game(HWND hWnd);
+    Game(HWND& hWnd);
     ~Game();
     void doTick(float deltaTime);
     void updateState();

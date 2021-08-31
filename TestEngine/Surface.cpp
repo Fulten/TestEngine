@@ -3,9 +3,9 @@
 
 Surface::Surface(std::string fileName)
 {
-	std::ifstream(fileName, std::ios::in, std::ios::binary);
+	std::ifstream fileIn(fileName, std::ios::in, std::ios::binary);
 
-
+	fileIn.close();
 }
 
 Surface::~Surface()

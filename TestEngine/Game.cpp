@@ -1,7 +1,7 @@
 #include "Game.h"
 
-Game::Game(HWND hWnd) :
-	Render(hWnd)
+Game::Game(HWND& hWnd) :
+	graphics(hWnd)
 {}
 
 Game::~Game()
@@ -13,9 +13,9 @@ void Game::doTick(float deltaTime)
 	updateState();
 	updateGraphics();
 	// builds the next frame
-	build(); 
+	graphics.build();
 	// sends the built frame to the graphics card
-	send(); 
+	graphics.present(); 
 }
 
 // update the state of the game

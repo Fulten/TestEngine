@@ -5,7 +5,7 @@
 
 namespace Color
 {
-	enum color
+	enum D3Dcolor
 	{
 		RED			= D3DCOLOR_XRGB(255, 0, 0),
 		RED_LIGHT	= D3DCOLOR_XRGB(255, 100, 100),
@@ -21,4 +21,9 @@ namespace Color
 		WHITE		= D3DCOLOR_XRGB(255, 255, 255)
 
 	};
+
+#define Red float[4] = {255, 0, 0, 1.0f}
+
+
+
 }

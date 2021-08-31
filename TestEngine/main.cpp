@@ -11,7 +11,7 @@
 int windowWidth = 900;
 int windowHight = 800;
 
-const wchar_t windowName[18]{ L"EngineTest | fps:" };
+std::wstring windowName = L"EngineTest | fps:";
 
 LRESULT CALLBACK WindowProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 void copy(wchar_t* recive, const wchar_t* target, int maxSize);
@@ -44,7 +44,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	// create the window and use the result as the handle
 	hWnd = CreateWindowEx(NULL,
 		L"WindowClass1", // name of the window class
-		windowName, // title of the window
+		windowName.c_str(), // title of the window
 		WS_OVERLAPPEDWINDOW, // window style
 		300, // x position of the window
 		100, // y position of the window
@@ -66,37 +66,47 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 	float fps = 0;
 
-	// test render
-	Game game(hWnd);
-
-	while (true)
+	try
 	{
-		while (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))
+		Game game(hWnd);
+
+		while (true)
 		{
-			TranslateMessage(&msg); // translate keystroke messages into a usable format
-			DispatchMessageW(&msg); // send the message to the WindowProc function
+			while (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))
+			{
+				TranslateMessage(&msg); // translate keystroke messages into a usable format
+				DispatchMessageW(&msg); // send the message to the WindowProc function
 
-			if (msg.message == WM_QUIT)
-				goto exit;
+				if (msg.message == WM_QUIT)
+					goto exit;
+			}
+
+			// calculate the time since last frame
+			deltaTime = std::chrono::duration_cast<std::chrono::duration<float>>(timer.now() - lastTimeFrame);
+			lastTimeFrame = timer.now();
+
+			// fps counter
+			fps = 1 / deltaTime.count();
+			SetWindowTextW(hWnd, (windowName + std::to_wstring(fps)).c_str());
+
+			// run game 
+			game.doTick(deltaTime.count());
+
+			Sleep(1);
 		}
-
-		// calculate the time since last frame
-		deltaTime = std::chrono::duration_cast<std::chrono::duration<float>>(timer.now() - lastTimeFrame);
-		lastTimeFrame = timer.now();
-
-		// fps counter
-		fps = 1 / deltaTime.count();
-		wchar_t buffer[32] = { 0 };
-		copy(buffer, windowName, 32);
-		append(buffer, std::to_string(fps).c_str(), 32);
-		SetWindowTextW(hWnd, buffer);
-
-		// run game 
-		game.doTick(deltaTime.count());
-
 	}
-exit:
+	catch (FultenException error) 
+	{
+		// translate error code into something useful
+		std::wstring temp = L"Error Caught in main: ";
+		temp +=error.getMessageW();
+		temp += L", At line : ";
+		temp += error.getLine();
+		OutputDebugStringW(temp.c_str());
+		return -1;
+	}
 
+exit:
 	return msg.wParam;
 }
 
@@ -120,21 +130,4 @@ LRESULT CALLBACK WindowProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPara
 	}
 
 	return DefWindowProc(hWnd, message, wParam, lParam);
-}
-
-void append(wchar_t* first, const char* second, int maxSize) // append one c-string to the end of another c-string
-{
-	int pos = 0;
-	for (; *first != 0 && pos < maxSize; pos++, first++) {}
-
-	for (; *second != 0 && pos < maxSize; pos++, second++, first++)
-		*first = *second;
-
-	*first = 0;
-}
-
-void copy(wchar_t* recive, const wchar_t* target, int maxSize)
-{
-	for (int k = 0; *target != 0 && k < maxSize; target++, recive++, k++)
-		*recive = *target;
 }
