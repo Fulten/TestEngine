@@ -27,6 +27,6 @@ void Game::updateState()
 // update the graphical component of the game
 void Game::updateGraphics()
 {
-	//Render::dc_str({ 10, 10 }, "Test Words", 4, Color::BLUE_LIGHT);
+	
 
 }

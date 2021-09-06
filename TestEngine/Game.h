@@ -8,8 +8,8 @@
 class Game 
 {
 private:
-    Draw graphics;
-
+   Draw graphics;
+    
 
 public:
     Game(HWND& hWnd);

@@ -2,14 +2,12 @@
 //simple vector based rendering engine
 // probably implmented poorly
 
-#include <Windows.h>
-#include <windowsx.h>
+#include "Win.h"
 #include <d3d9.h>
 #include <d3dx9.h>
 #include <vector>
 #include "vec2d.h"
 #include "DrawCharString.h"
-#include "Color.h"
 
 #pragma comment (lib, "d3d9.lib")
 #pragma comment (lib, "d3dx9.lib")
