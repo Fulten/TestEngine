@@ -1,9 +1,8 @@
 #pragma once
 
-#include "RenderV2.h"
 #include "vec2d.h"
 
-class Draw : public RenderV2
+class Draw 
 {
 private:
 
@@ -11,7 +10,7 @@ private:
 
 
 public:
-	Draw(HWND &hWnd);
+	Draw();
 	~Draw();
 
 
