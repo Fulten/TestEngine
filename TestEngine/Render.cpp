@@ -32,7 +32,7 @@ Render::~Render()
 }
 
 // builds a frame for the graphics card
-void Render::Build()
+void Render::build()
 {
 	// get a chunk of memory to write vertices to
 	d3ddev->CreateVertexBuffer(vertices.size() * sizeof(CUSTOMVERTEX),
@@ -66,7 +66,7 @@ void Render::Build()
 }
 
 // sends a built frame to the graphics card
-void Render::Send()
+void Render::send()
 {
 	// clear previous frame
 	d3ddev->Clear(0, NULL, D3DCLEAR_TARGET, D3DCOLOR_XRGB(0, 0, 0), 1.0f, 0);

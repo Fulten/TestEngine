@@ -1,14 +1,13 @@
 #pragma once
 //simple vector based rendering engine
+// probably implmented poorly
 
-#include <Windows.h>
-#include <windowsx.h>
+#include "Win.h"
 #include <d3d9.h>
 #include <d3dx9.h>
 #include <vector>
 #include "vec2d.h"
 #include "DrawCharString.h"
-#include "Color.h"
 
 #pragma comment (lib, "d3d9.lib")
 #pragma comment (lib, "d3dx9.lib")
@@ -32,8 +31,8 @@ private:
 	LPDIRECT3DVERTEXBUFFER9 v_buffer = NULL;
 
 protected:
-	void Build(); // builds a frame for the graphics card
-	void Send(); // sends a built frame to the graphics card
+	void build(); // builds a frame for the graphics card
+	void send(); // sends a built frame to the graphics card
 
 public:
 	Render(HWND& hWnd);

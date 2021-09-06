@@ -15,7 +15,7 @@ Map::~Map()
 bool Map::getMap(std::string fileName)
 {
 	// load map based on fileName
-	std::ifstream mapFile (fileName,  std::ios::in, std::ios::binary);
+	std::ifstream mapFile (fileName, std::ios::in | std::ios::binary);
 	if (mapFile.fail()) // check that it was opened correctly
 		return false;
 
@@ -27,11 +27,10 @@ bool Map::getMap(std::string fileName)
 
 	const int size = height * width;
 
-	mapTiles = new Tile[size];
+	mapTiles = new Tile[size] { 0 };
 	if (mapTiles == nullptr) // check the memory was correctly allocated
 		return false;
 
-	ZeroMemory(mapTiles, sizeof(Tile) * size);
 	
 	// load tile values from file
 	for (int i = 0; i < size; i++)
@@ -51,7 +50,6 @@ Tile Map::getTile(vec2d<int> pos)
 // returns a tile with type negative if out of bounds or uninitilized
 Tile Map::getTile(int x, int y)
 {
-	if (mapTiles == nullptr) return Tile(-2);
 	if (x > width || x < 0) return Tile(-1);
 	if (y > height || y < 0) return Tile(-1);
 	return mapTiles[x + y * width];

@@ -5,7 +5,6 @@
 #include "vec2d.h"
 #include <string>
 #include <fstream>
-#include <windows.h>
 
 // represents one tile on the map
 struct Tile
@@ -35,7 +34,6 @@ public:
 	Tile getTile(int x, int y);
 	short getWidth();
 	short getHeight();
-
 
 };
 

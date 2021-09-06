@@ -1,24 +1,51 @@
 #pragma once
-// enumorator for common colors in the D3DCOLOR format
+// uses bit shifting to combine 4 characters into a single ARGB unsigned integer value
 
-#include <d3d9.h>
+class Color
+{
+private:
+	UINT colorCode;
 
+public:
+	Color() : colorCode() {}
+	Color(const Color& rhs)
+	{
+		*this = rhs;
+	}
+	Color operator=(const Color& rhs)
+	{
+		colorCode = rhs.colorCode;
+	}
+	Color(unsigned char a, unsigned char r, unsigned char g, unsigned char b) :
+		colorCode( (a << 24u) | (r << 16u) | (g << 8u) | b)	{}
+
+	Color(unsigned char r, unsigned char g, unsigned char b) :
+		colorCode ( (r << 16u ) | (g << 8u) | b) {}
+
+	~Color() {}
+
+	void setColorRGB(unsigned char r, unsigned char g, unsigned char b)
+	{
+		colorCode = ((r << 16u) | (g << 8u) | b);
+	}
+
+	const UINT getColor()
+	{
+		return colorCode;
+	}
+
+};
+
+/*
 namespace Color
 {
-	enum color
-	{
-		RED			= D3DCOLOR_XRGB(255, 0, 0),
-		RED_LIGHT	= D3DCOLOR_XRGB(255, 100, 100),
-		GREEN		= D3DCOLOR_XRGB(0, 255, 0),
-		GREEN_LIGHT = D3DCOLOR_XRGB(100, 255, 100),
-		BLUE		= D3DCOLOR_XRGB(0, 0, 255),
-		BLUE_LIGHT	= D3DCOLOR_XRGB(100, 100, 255),
-		PURPLE		= D3DCOLOR_XRGB(255, 0, 255),
-		ORANGE		= D3DCOLOR_XRGB(255, 255, 0),
-		CYAN		= D3DCOLOR_XRGB(0, 255, 255),
-		BLACK		= D3DCOLOR_XRGB(0, 0, 0),
-		GREY		= D3DCOLOR_XRGB(150, 150, 150),
-		WHITE		= D3DCOLOR_XRGB(255, 255, 255)
+	color Red(255, 0, 0);
+	color Green(0, 255, 0);
+	color Blue(0, 0, 255);
+	color Orange(255, 255, 0);
+	color Purple(255, 0, 255);
+	color Cyan(0, 255, 255);
+	color White(255, 255, 255);
+	color Black(0, 0, 0);
 
-	};
-}
+}*/
