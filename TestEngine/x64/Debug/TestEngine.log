@@ -1,3 +1,10 @@
-﻿C:\Users\Robert\source\repos\TestEngine\TestEngine\2DVertexTestShader.hlsl(8,27-38): error X4502: invalid vs_2_0 input semantic 'POSITION2D'
-  
-  compilation failed; no code produced
+﻿  Game.cpp
+C:\Users\Robert\source\repos\TestEngine\TestEngine\RenderV2.h(8,10): fatal error C1083: Cannot open include file: 'd3dx11.h': No such file or directory
+  KeyBoard.cpp
+  main.cpp
+C:\Users\Robert\source\repos\TestEngine\TestEngine\RenderV2.h(8,10): fatal error C1083: Cannot open include file: 'd3dx11.h': No such file or directory
+  RenderV2.cpp
+C:\Users\Robert\source\repos\TestEngine\TestEngine\RenderV2.h(8,10): fatal error C1083: Cannot open include file: 'd3dx11.h': No such file or directory
+  window.cpp
+C:\Users\Robert\source\repos\TestEngine\TestEngine\RenderV2.h(8,10): fatal error C1083: Cannot open include file: 'd3dx11.h': No such file or directory
+  Generating Code...
