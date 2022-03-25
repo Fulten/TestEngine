@@ -1,5 +1,7 @@
 #pragma once
 
+#define NOMINMAX
+
 #include <Windows.h>
 #include <string.h>
 #include <fstream>
@@ -56,7 +58,7 @@ private:
 public:
 	RenderV2(HWND hWnd, FULTEN_DISPLAY_DESC displayDesc); // constructor
 	RenderV2(const RenderV2&) = delete; // copy constructor is deleted
-	RenderV2();
+	RenderV2() = delete;
 	RenderV2& operator=(const RenderV2&) = delete; // assignment operator is deleted
 	~RenderV2(); // destructor
 
