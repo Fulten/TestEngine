@@ -243,7 +243,7 @@ std::vector<BYTE> RenderV2::LoadShaderFromFile(std::string fileName)
 		FULTEN_EXCEPTION(("Error opening shaderFile: " + fileName).c_str());
 
 	file.seekg(0, std::ios::end);
-	int length = file.tellg();
+	int length = (int)file.tellg();
 	file.seekg(0, std::ios::beg);
 	file.clear();
 

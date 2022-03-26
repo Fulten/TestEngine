@@ -5,3 +5,5 @@
 /.vs
 /Debug
 /TestEngine/Debug
+/x64/Debug
+/TestEngine/x64/Debug
